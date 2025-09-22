@@ -658,7 +658,19 @@ require('lazy').setup({
         -- You can add other tools here that you want Mason to install
       })
 
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      local conditional_installed = {}
+      for _, server in pairs(ensure_installed) do
+        table.insert(conditional_installed, {
+          server,
+          condition = function()
+            local config = vim.lsp.config[server] or {}
+            local cmd = config.cmd[1] or ''
+            return vim.fn.executable(cmd) == 0
+          end,
+        })
+      end
+
+      require('mason-tool-installer').setup { ensure_installed = conditional_installed }
 
       for name, server in pairs(servers) do
         vim.lsp.config(name, server)
