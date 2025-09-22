@@ -609,7 +609,6 @@ do
       previewer = false,
     })
   end, { desc = '[/] Fuzzily search in current buffer' })
-
   -- It's also possible to pass additional configuration options.
   --  See `:help telescope.builtin.live_grep()` for information about particular keys
   vim.keymap.set(
@@ -968,7 +967,30 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = {
+    'bash',
+    'c',
+    'cpp',
+    'cmake',
+    'diff',
+    'git_config',
+    'html',
+    'json',
+    'kconfig',
+    'lua',
+    'luadoc',
+    'make',
+    'markdown',
+    'markdown_inline',
+    'query',
+    'python',
+    'rust',
+    'toml',
+    'vim',
+    'vimdoc',
+    'yaml',
+  }
+
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
