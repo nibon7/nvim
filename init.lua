@@ -809,7 +809,24 @@ do
     -- You can add other tools here that you want Mason to install
   })
 
-  require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+  local conditional_installed = {}
+  for _, server in pairs(ensure_installed) do
+    table.insert(conditional_installed, {
+      server,
+      condition = function()
+        local config = vim.lsp.config[server] or {}
+        local cmd = config.cmd
+        if type(cmd) == 'table' then
+          local exe = cmd[1]
+          return vim.fn.executable(exe) == 0
+        else
+          return false
+        end
+      end,
+    })
+  end
+
+  require('mason-tool-installer').setup { ensure_installed = conditional_installed }
 
   for name, server in pairs(servers) do
     vim.lsp.config(name, server)
