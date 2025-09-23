@@ -167,6 +167,13 @@ vim.o.confirm = true
 -- Set default border style
 vim.o.winborder = 'rounded'
 
+-- Spell checking
+vim.o.spell = false
+vim.o.spelllang = 'en_us'
+vim.o.spellsuggest = 'best'
+
+vim.keymap.set('n', '<leader>ts', '<cmd> lua vim.o.spell = not vim.o.spell<CR>', { desc = '[T]oggle [S]pell checking' })
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
