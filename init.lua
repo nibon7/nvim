@@ -793,6 +793,17 @@ require('lazy').setup({
         nerd_font_variant = 'mono',
       },
 
+      cmdline = {
+        keymap = {
+          preset = 'cmdline',
+
+          -- Accept the currently selected item and feed an enter key
+          ['CR'] = { 'accept_and_enter', 'fallback' },
+        },
+        sources = { 'buffer', 'cmdline' },
+        completion = { menu = { auto_show = true } },
+      },
+
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
