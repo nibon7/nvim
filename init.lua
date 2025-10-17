@@ -289,6 +289,11 @@ require('lazy').setup({
     ---@type Gitsigns.Config
     ---@diagnostic disable-next-line: missing-fields
     opts = {
+      current_line_blame = true,
+      current_line_blame_formatter = ' <abbrev_sha>, <author>, <author_time:%R> - <summary>',
+      current_line_blame_opts = {
+        delay = 500,
+      },
       signs = {
         add = { text = '+' }, ---@diagnostic disable-line: missing-fields
         change = { text = '~' }, ---@diagnostic disable-line: missing-fields
