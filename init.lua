@@ -378,7 +378,7 @@ do
     -- gitsigns.nvim's recommended keymaps:
     on_attach = function(bufnr)
       -- Navigation
-      vim.keymap.set('n', ']c', function()
+      vim.keymap.set('n', '<leader>hn', function()
         if vim.wo.diff then
           vim.cmd.normal { ']c', bang = true }
         else
@@ -386,7 +386,7 @@ do
         end
       end, { desc = 'Jump to next git [c]hange', buf = bufnr })
 
-      vim.keymap.set('n', '[c', function()
+      vim.keymap.set('n', '<leader>hN', function()
         if vim.wo.diff then
           vim.cmd.normal { '[c', bang = true }
         else
