@@ -625,7 +625,19 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyright = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          -- https://rust-analyzer.github.io/book/configuration.html
+          settings = {
+            ['rust-analyzer'] = {
+              inlayHints = {
+                lifetimeElisionHints = {
+                  enable = 'always',
+                  useParameterNames = true,
+                },
+              },
+            },
+          },
+        },
         tinymist = {},
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
