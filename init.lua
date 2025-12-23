@@ -760,7 +760,19 @@ do
     --    https://github.com/mrcjkb/rustaceanvim
     --
     -- But for many setups, the LSP (`rust_analyzer`) will work just fine
-    rust_analyzer = {},
+    rust_analyzer = {
+      -- https://rust-analyzer.github.io/book/configuration.html
+      settings = {
+        ['rust-analyzer'] = {
+          inlayHints = {
+            lifetimeElisionHints = {
+              enable = 'always',
+              useParameterNames = true,
+            },
+          },
+        },
+      },
+    },
     tinymist = {},
 
     stylua = {}, -- Used to format Lua code
