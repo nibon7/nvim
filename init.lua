@@ -753,6 +753,7 @@ do
     bashls = {},
     clangd = {},
     -- gopls = {},
+    jsonls = {},
     pyright = {},
     -- tsc = {},
     --
