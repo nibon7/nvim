@@ -775,6 +775,7 @@ do
       },
     },
     tinymist = {},
+    yamlls = {},
 
     stylua = {}, -- Used to format Lua code
 
