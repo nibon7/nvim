@@ -17,4 +17,15 @@ require('neo-tree').setup {
       },
     },
   },
+  event_handlers = {
+    {
+      event = 'after_render',
+      handler = function(state)
+        if not require('neo-tree.sources.common.preview').is_active() then
+          state.config = { use_float = true }
+          state.commands.toggle_preview(state)
+        end
+      end,
+    },
+  },
 }
