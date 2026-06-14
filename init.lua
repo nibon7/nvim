@@ -250,6 +250,8 @@ do
 
   vim.keymap.set('n', '<leader>ts', '<cmd> lua vim.o.spell = not vim.o.spell<CR>', { desc = '[T]oggle [S]pell checking' })
 
+  vim.keymap.set('n', '<leader>pu', '<cmd> lua vim.pack.update()<CR>', { desc = 'Update package' })
+
   -- [[ Basic Autocommands ]]
   --  See `:help lua-guide-autocommands`
 
